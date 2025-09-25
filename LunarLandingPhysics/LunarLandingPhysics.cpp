@@ -138,7 +138,9 @@ double compute_horizontal_component(double a, double total) {
       * OUTPUT
       *    total : total component
       ***********************************************/
-      // your function goes here
+int compute_total_component(double x, double y) {
+        // code here
+      }
 
 
       /*************************************************
