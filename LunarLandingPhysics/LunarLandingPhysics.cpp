@@ -32,9 +32,9 @@ using namespace std;
  *     s : new position, in meters
  **************************************************/
 double compute_distance(double s, double v, double a, double t) {
-        s = s + (v * t) + (1 / 2) * (a * t * t);
-        return s;
-}
+    s = s + (v * t) + (1 / 2) * (a * t * t);
+    return s;
+    }
 
  /**************************************************
   * COMPUTE ACCELERATION
@@ -48,9 +48,9 @@ double compute_distance(double s, double v, double a, double t) {
   *     a : acceleration, in meters/second^2
   ***************************************************/
 double compute_acceleration(double f, double m) {
-        double a = f / m
-        return a;
-  }
+    double a = f / m;
+    return a;
+    }
 
   /***********************************************
    * COMPUTE VELOCITY
@@ -67,9 +67,9 @@ double compute_acceleration(double f, double m) {
    *     v : new velocity, in meters/second
    ***********************************************/
 double comput_velocity(double v, double a, double t) {
-        v = v + (a * t)
-        return v;
-   }
+    v = v + (a * t);
+    return v;
+    }
 
 
    /***********************************************
@@ -91,7 +91,8 @@ double comput_velocity(double v, double a, double t) {
     *     y : the vertical component of the total
     ***********************************************/
 double compute_vertical_component(double a, double total) {
-
+    double y = total * cos(a);
+    return y;
     }
 
     /***********************************************
