@@ -33,7 +33,7 @@ using namespace std;
  * OUTPUT
  *     s : new position, in meters
  **************************************************/
-double compute_distance(double s, double v, double a, double t) {
+double computeDistance(double s, double v, double a, double t) {
     s = s + (v * t) + (0.5) * (a * t * t);
     return s;
     }
@@ -49,7 +49,7 @@ double compute_distance(double s, double v, double a, double t) {
   * OUTPUT
   *     a : acceleration, in meters/second^2
   ***************************************************/
-double compute_acceleration(double f, double m) {
+double computeAcceleration(double f, double m) {
     double a = f / m;
     return a;
     }
@@ -68,7 +68,7 @@ double compute_acceleration(double f, double m) {
    * OUTPUT
    *     v : new velocity, in meters/second
    ***********************************************/
-double compute_velocity(double v, double a, double t) {
+double computeVelocity(double v, double a, double t) {
     v = v + (a * t);
     return v;
     }
@@ -92,7 +92,7 @@ double compute_velocity(double v, double a, double t) {
     * OUTPUT
     *     y : the vertical component of the total
     ***********************************************/
-double compute_vertical_component(double a, double total) {
+double computeVerticalComponent(double a, double total) {
     double y = total * cos(a);
     return y;
     }
@@ -115,7 +115,7 @@ double compute_vertical_component(double a, double total) {
      * OUTPUT
      *     x : the vertical component of the total
      ***********************************************/
-double compute_horizontal_component(double a, double total) {
+double computeHorizontalComponent(double a, double total) {
     double x = total * sin(a);
     return x;
     }
@@ -139,7 +139,7 @@ double compute_horizontal_component(double a, double total) {
       * OUTPUT
       *    total : total component
       ***********************************************/
-double compute_total_component(double x, double y) {
+double computeTotalComponent(double x, double y) {
       double total = sqrt((x * x) + (y * y));
       return total;
       }
@@ -154,7 +154,7 @@ double compute_total_component(double x, double y) {
        * OUTPUT
        *     r : radians from 0 to 2pi
        **************************************************/
-        double radians_from_degrees(double d) {
+        double radiansFromDegrees(double d) {
             const double PI = M_PI;
             double r = (d * 2 * PI) / 360;
 		    return r;
@@ -200,17 +200,17 @@ int main()
       // your code goes here
       // Hint: Update the position _before_ updating the velocity
     for (int i = 0; i < 5; i++) {
-        aRadians = radians_from_degrees(aDegrees);
-        accelerationThrust = compute_acceleration(THRUST, WEIGHT);
-        ddxThrust = compute_horizontal_component(aRadians, accelerationThrust);
-        ddyThrust = compute_vertical_component(aRadians, accelerationThrust);
+        aRadians = radiansFromDegrees(aDegrees);
+        accelerationThrust = computeAcceleration(THRUST, WEIGHT);
+        ddxThrust = computeHorizontalComponent(aRadians, accelerationThrust);
+        ddyThrust = computeVerticalComponent(aRadians, accelerationThrust);
         ddx = ddxThrust;
         ddy = ddyThrust + GRAVITY;
-        x = compute_distance(x, dx, ddx, t);
-        y = compute_distance(y, dy, ddy, t);
-        dx = compute_velocity(dx, ddx, t);
-        dy = compute_velocity(dy, ddy, t);
-        v = compute_total_component(dx, dy);
+        x = computeDistance(x, dx, ddx, t);
+        y = computeDistance(y, dy, ddy, t);
+        dx = computeVelocity(dx, ddx, t);
+        dy = computeVelocity(dy, ddy, t);
+        v = computeTotalComponent(dx, dy);
 
         // Output
         cout.setf(ios::fixed | ios::showpoint);
