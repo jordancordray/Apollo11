@@ -138,8 +138,9 @@ double compute_horizontal_component(double a, double total) {
       * OUTPUT
       *    total : total component
       ***********************************************/
-int compute_total_component(double x, double y) {
-        // code here
+double compute_total_component(double x, double y) {
+      double total = sqrt((x * x) + (y * y));
+      return total;
       }
 
 
