@@ -153,7 +153,12 @@ double comput_velocity(double v, double a, double t) {
         * OUTPUT
         *      response : the user's response
         ***************************************************/
-        // your function goes here
+          void prompt(string message) {
+                    double response;
+                    cout << message;
+                    cin >> response;
+			        return response;
+                }
 
         /****************************************************************
          * MAIN
