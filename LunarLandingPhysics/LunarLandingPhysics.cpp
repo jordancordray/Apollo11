@@ -155,7 +155,12 @@ double compute_vertical_component(double a, double total) {
         * OUTPUT
         *      response : the user's response
         ***************************************************/
-        // your function goes here
+          void prompt(string message) {
+                    double response;
+                    cout << message;
+                    cin >> response;
+			        return response;
+                }
 
         /****************************************************************
          * MAIN
