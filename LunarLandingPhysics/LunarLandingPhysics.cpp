@@ -143,7 +143,11 @@ double comput_velocity(double v, double a, double t) {
        * OUTPUT
        *     r : radians from 0 to 2pi
        **************************************************/
-       // your function goes here
+        int radians_from_degrees(int d) {
+            const double PI = 3.14159265358979323846;
+            double r = (d * 2 * PI) / 360;
+		    return r;
+        }
 
        /**************************************************
         * PROMPT
