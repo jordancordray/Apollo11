@@ -12,6 +12,7 @@
  **************************************************************/
 
 #include <iostream>  // for CIN and COUT
+#include <cmath>
 using namespace std;
 
 #define WEIGHT   15103.000   // Weight in KG
@@ -66,7 +67,7 @@ double compute_acceleration(double f, double m) {
    * OUTPUT
    *     v : new velocity, in meters/second
    ***********************************************/
-double comput_velocity(double v, double a, double t) {
+double compute_velocity(double v, double a, double t) {
     v = v + (a * t);
     return v;
     }
@@ -113,7 +114,10 @@ double compute_vertical_component(double a, double total) {
      * OUTPUT
      *     x : the vertical component of the total
      ***********************************************/
-     // your function goes here
+double compute_horizontal_component(double a, double total) {
+    double x = total * sin(a);
+    return x;
+    }
 
      /************************************************
       * COMPUTE TOTAL COMPONENT
@@ -146,8 +150,8 @@ double compute_vertical_component(double a, double total) {
        * OUTPUT
        *     r : radians from 0 to 2pi
        **************************************************/
-        int radians_from_degrees(int d) {
-            const double PI = 3.14159265358979323846;
+        double radians_from_degrees(double d) {
+            const double PI = M_PI;
             double r = (d * 2 * PI) / 360;
 		    return r;
         }
