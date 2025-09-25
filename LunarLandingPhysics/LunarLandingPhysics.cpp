@@ -11,6 +11,7 @@
  *      -total time in hours: reading the assignment, submitting, etc.
  **************************************************************/
 
+#define _USE_MATH_DEFINES
 #include <iostream>  // for CIN and COUT
 #include <cmath>
 using namespace std;
@@ -33,7 +34,7 @@ using namespace std;
  *     s : new position, in meters
  **************************************************/
 double compute_distance(double s, double v, double a, double t) {
-    s = s + (v * t) + (1 / 2) * (a * t * t);
+    s = s + (v * t) + (0.5) * (a * t * t);
     return s;
     }
 
@@ -167,7 +168,7 @@ double compute_total_component(double x, double y) {
         * OUTPUT
         *      response : the user's response
         ***************************************************/
-          void prompt(string message) {
+       double prompt(string message) {
                     double response;
                     cout << message;
                     cin >> response;
@@ -198,13 +199,26 @@ int main()
     // Go through the simulator five times
       // your code goes here
       // Hint: Update the position _before_ updating the velocity
+    for (int i = 0; i < 5; i++) {
+        aRadians = radians_from_degrees(aDegrees);
+        accelerationThrust = compute_acceleration(THRUST, WEIGHT);
+        ddxThrust = compute_horizontal_component(aRadians, accelerationThrust);
+        ddyThrust = compute_vertical_component(aRadians, accelerationThrust);
+        ddx = ddxThrust;
+        ddy = ddyThrust + GRAVITY;
+        x = compute_distance(x, dx, ddx, t);
+        y = compute_distance(y, dy, ddy, t);
+        dx = compute_velocity(dx, ddx, t);
+        dy = compute_velocity(dy, ddy, t);
+        v = compute_total_component(dx, dy);
 
-      // Output
-    cout.setf(ios::fixed | ios::showpoint);
-    cout.precision(2);
-    cout << "\tNew position:   (" << x << ", " << y << ")m\n";
-    cout << "\tNew velocity:   (" << dx << ", " << dy << ")m/s\n";
-    cout << "\tTotal velocity:  " << v << "m/s\n\n";
+        // Output
+        cout.setf(ios::fixed | ios::showpoint);
+        cout.precision(2);
+        cout << "\tNew position:   (" << x << ", " << y << ")m\n";
+        cout << "\tNew velocity:   (" << dx << ", " << dy << ")m/s\n";
+        cout << "\tTotal velocity:  " << v << "m/s\n\n";
+    }
 
 
     return 0;
