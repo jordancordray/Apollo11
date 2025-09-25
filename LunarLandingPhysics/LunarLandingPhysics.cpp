@@ -90,7 +90,9 @@ double comput_velocity(double v, double a, double t) {
     * OUTPUT
     *     y : the vertical component of the total
     ***********************************************/
-    // your function goes here
+double compute_vertical_component(double a, double total) {
+
+    }
 
     /***********************************************
      * COMPUTE HORIZONTAL COMPONENT
