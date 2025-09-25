@@ -1,6 +1,6 @@
 /*************************************************************
  * 1. Name:
- *      -your name-
+ *      Jordan and Briant
  * 2. Assignment Name:
  *      Practice 02: Physics simulator
  * 3. Assignment Description:
@@ -31,7 +31,10 @@ using namespace std;
  * OUTPUT
  *     s : new position, in meters
  **************************************************/
- // your function goes here
+double compute_distance(double s, double v, double a, double t) {
+        s = s + (v * t) + (1 / 2) * (a * t * t);
+        return s;
+}
 
  /**************************************************
   * COMPUTE ACCELERATION
@@ -60,7 +63,10 @@ using namespace std;
    * OUTPUT
    *     v : new velocity, in meters/second
    ***********************************************/
-   // your function goes here
+double comput_velocity(double v, double a, double t) {
+        v = v + (a * t)
+        return v;
+   }
 
 
    /***********************************************
